@@ -1,0 +1,64 @@
+﻿@model Customer
+
+@{
+    ViewData["Title"] = "formresponse";
+}
+
+<head>
+    <style>
+        .boxtomove {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            animation-name: boxMover;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        @@keyframes boxMover {
+            0% {
+                left: 18%
+            }
+
+            100% {
+                left: 110%
+            }
+        }
+    </style>
+
+</head>
+
+<div class="boxtomove">
+
+    <img src="~/imgs/winkingcoffee.gif" />
+
+</div>
+
+<body>
+    <h3>Hey @Model.FirstName,</h3>
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <img src="https://www.budgetsaresexy.com/images/i-own-you-coffee-gif.gif" />
+
+    <br />
+    <p>
+        Just kidding. But congrats on registering for FAKE FREE COFFEE!
+        <br />
+        <br />
+        It's time to celebrate!!
+        <br />
+        <br />
+        <img src="https://i.pinimg.com/originals/52/da/cc/52dacc7d6e26e6495bc60b22632df44d.gif" /> <br /><br />
+        Also, speaking about celebrating, your birthday is in @Model.GetDays(@Model.BirthDate) days!
+
+
+
+    </p>
+
+</body>
+

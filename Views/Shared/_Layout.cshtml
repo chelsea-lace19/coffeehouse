@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ViewData["Title"] - Cliff Coffee Co.</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> <!--this is the "bootstrap" style located in a library. If you delete this you can change the layout/design defaults.-->
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+
+        body {
+            background-color: #b8ad77;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        a {
+            color: black;
+            font-weight: bold;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .dropdown-toggle::after {
+            content: none;
+        }
+
+        dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -3px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+            color: #b39b7f
+        }
+
+        .dropdown-submenu > a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #b39b7f;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+
+        .dropdown-submenu:hover > a:after {
+            border-left-color: #b39b7f;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
+            .dropdown-submenu.pull-left > .dropdown-menu {
+                left: -100%;
+                margin-left: 10px;
+                -webkit-border-radius: 6px 0 6px 6px;
+                -moz-border-radius: 6px 0 6px 6px;
+                border-radius: 6px 0 6px 6px;
+            }
+    </style>
+</head>
+
+
+
+
+
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a style="text-align:left" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <img src="https://media.tenor.com/images/ee7ec2aee427884dab05c1348deae810/tenor.gif" width="70" height="67" />Cliff Coffee Co.</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="nav-link text-dark" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">Menu</a><span class="caret"></span>
+                                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                    <li class="dropdown-submenu dropdown">
+                                        <a tabindex="-1" href="#"><img src="/imgs/images.jpg" width="35" height="35" />Hot Coffee</a>
+                                        <ul class="dropdown-menu">
+                                            @foreach (Product item in Product.GetAllItems())
+                                            {
+                                                if (item.category == "Hot Coffee")
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" href="/home/detail/@item.id">@item.name<br /></a>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#"><img src="/imgs/images.jpg" width="35" height="35" />Hot Teas</a>
+                                        <ul class="dropdown-menu">
+                                            @foreach (Product item in Product.GetAllItems())
+                                            {
+                                                if (item.category == "Hot Tea")
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" href="/home/detail/@item.id">@item.name<br /></a>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#"><img src="/imgs/images.jpg" width="35" height="35" />Cold Coffees</a>
+                                        <ul class="dropdown-menu">
+                                            @foreach (Product item in Product.GetAllItems())
+                                            {
+                                                if (item.category == "Cold Coffee")
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" href="/home/detail/@item.id">@item.name<br /></a>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#"><img src="/imgs/images.jpg" width="35" height="35" />Iced Teas</a>
+                                        <ul class="dropdown-menu">
+                                            @foreach (Product item in Product.GetAllItems())
+                                            {
+                                                if (item.category == "Iced Tea")
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" href="/home/detail/@item.id">@item.name<br /></a>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <a tabindex="-1" href="/home/menu">Full Menu View</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="registrationform">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                        </li>                     
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Cliff Coffee Co. - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

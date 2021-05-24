@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Administrator Page</h1>
+<head>
+    <style>
+        body {
+            background-color: #b8ad77;
+        }
+
+        a {
+            color: black;
+            font-weight: bold;
+        }
+
+        h4 {
+            text-decoration-line: underline;
+        }
+
+        .text-div {
+            background-image: linear-gradient(to right, #000 10%, rgba(255, 255, 255, 0) 0%);
+            background-position: 0 14px;
+            background-size: 10px 1px;
+            background-repeat: repeat-x;
+            width: 100%;
+            height: 25px;
+        }
+
+        .text-span {
+            background: #b8ad77;
+            padding-right: 10px
+        }
+
+        .pull-right {
+            float: right;
+            padding-left: 10px
+        }
+    </style>
+
+</head>
+<body>
+    <div class="panel-group" id="accordion1">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+                        Hot Coffee
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    @foreach (Product prod in Model)
+                    {
+                        if (prod.category == "Hot Coffee")
+                        {
+                            <div class="panel-body">
+                                <div class="panel-group" id="accordion21">
+                                    <div class="panel">
+                                        <span class="text-span"><a href="/home/detail/@prod.id">@prod.name</a></span> <span class="text-span pull-right"><a href="/Admin/EditForm/@prod.id">Edit</a> &nbsp;<a href="/Admin/Delete/@prod.id">Delete</a></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
+                        Hot Tea
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    @foreach (Product prod in Model)
+                    {
+                        if (prod.category == "Hot Tea")
+                        {
+                            <div class="panel-body">
+                                <div class="panel-group" id="accordion22">
+                                    <div class="panel">
+
+                                        <span class="text-span"><a href="/home/detail/@prod.id">@prod.name</a></span> <span class="text-span pull-right"><a href="/Admin/EditForm/@prod.id">Edit</a>&nbsp; <a href="/Admin/Delete/@prod.id">Delete</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">
+                    Cold Coffee
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                @foreach (Product prod in Model)
+                {
+                    if (prod.category == "Cold Coffee")
+                    {
+                        <div class="panel-body">
+                            <div class="panel-group" id="accordion23">
+                                <div class="panel">
+                                    <span class="text-span"><a href="/home/detail/@prod.id">@prod.name</a></span> <span class="text-span pull-right"><a href="/Admin/EditForm/@prod.id">Edit</a> &nbsp;<a href="/Admin/Delete/@prod.id">Delete</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion1" href="#collapseFour">
+                    Iced Tea
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+            <div class="panel-body">
+
+                @foreach (Product prod in Model)
+                {
+                    if (prod.category == "Iced Tea")
+                    {
+                        <div class="panel-body">
+                            <div class="panel-group" id="accordion24">
+                                <div class="panel">
+                                    <span class="text-span"><a href="/home/detail/@prod.id">@prod.name</a></span> <span class="text-span pull-right"><a href="/Admin/EditForm/@prod.id">Edit</a>&nbsp; <a href="/Admin/Delete/@prod.id">Delete</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <a href="/admin/addform/" class="btn btn-primary" style="background-color:gray; border-color:black; ">Add New Product</a>
+</body>

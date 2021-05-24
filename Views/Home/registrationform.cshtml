@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "registrationform";
+}
+<body style="background-color: #362e19">
+    <div style="object-fit:fill;text-align:center" ;>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-2O7UhtJX_GuS4-G7t5eBvH0vGcQ5oMVlg&usqp=CAU" />
+    </div>
+    <br />
+    <br />
+    <h1 style="text-align:center;color:wheat">Fill in your information for FREE COFFEE</h1>
+    <br />
+    <br />
+    <form method="post" action="/home/formresponse" style="text-align:center;border:dotted;border-width:thin;background-color:whitesmoke">
+        <br />
+        <input type="text" name="FirstName" placeholder="First Name" required />
+        <input type="text" name="LastName" placeholder="Last Name" required /><br /><br />
+        <input type="email" name="Email" placeholder="Email" required />
+        <input type="email" name="Email2" placeholder="Confirm Email" required /><br /><br />
+        <input type="tel" name="PhoneNum" placeholder="Phone (XXX-XXX-XXXX)" required pattern="^\d{3}-\d{3}-\d{4}$" />
+        <input type="date" name="BirthDate" placeholder="Birthday" required /><br />
+        <input type="checkbox" /> I would like to receive spam text messages with sub-par deals
+        <br /><br />
+        <input type="password" name="Password" placeholder="Password" required /><br /><br />
+        <input type="password" name="Password2" placeholder="Confirm Password" required /><br /><br />
+        <input type="submit" value="SEND ME COFFEE BRO" />
+        <br />
+        <br />
+    </form>
+
+    <br />
+    <br />
+    <br />
+
+
+</body>
+
+
+
+
+

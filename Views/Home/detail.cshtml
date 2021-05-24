@@ -1,0 +1,15 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "detail";
+}
+
+<h1>Menu</h1>
+<br />
+<h2>@Model.name.............$@Model.price</h2>
+<body>
+    <img src="~/imgs/@(Model.name).jpg" width="300" height="245"/>
+</body>
+<p style="width:345px">
+    @Model.description
+</p>
+
